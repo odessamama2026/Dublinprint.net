@@ -11,13 +11,17 @@ const Ph = ({
 }) => React.createElement("span", {
   className: "ph"
 }, "[", children, "]");
-const goContact = () => {
-  const el = document.getElementById('contact');
-  if (el) window.scrollTo({
-    top: el.offsetTop - 60,
-    behavior: 'smooth'
-  });
-};
+const IDEA_EMAIL = 'mailto:27print27@gmail.com?subject=' + encodeURIComponent('Custom sticker enquiry — DublinPrint') + '&body=' + encodeURIComponent("Hello DublinPrint,\n\nMy sticker idea / description:\n\nSticker sizes (width × height in mm, for each design):\n\nOR: Please arrange my stickers on A4 and send me a preliminary design for approval.\n\nCut option (kiss-cut / die-cut):\nNumber of A4 sheets:\nMy name:\nMy phone number (optional):\n\nI will manually attach up to 6 graphic files, no more than 20 MB in total.\n");
+const goContact = () => { window.location.href = IDEA_EMAIL; };
+function AttachmentNote() {
+  return React.createElement("p", {
+    style: { fontSize: 14, lineHeight: 1.6, marginTop: 16, maxWidth: 560 }
+  }, "Opens your email app. Please attach up to 6 graphic files, no more than 20 MB in total. Include the size of each sticker, or ask us to arrange them on A4 and send you a preliminary design for approval.",
+  React.createElement("br"),
+  "If your email app does not open, email ",
+  React.createElement("a", { href: IDEA_EMAIL }, "27print27@gmail.com"),
+  " and attach your files manually.");
+}
 function Header() {
   return React.createElement("header", {
     className: "hdr"
@@ -61,7 +65,7 @@ function Hero({
     name: "clock",
     size: 16,
     tone: "muted"
-  }), "Ready to collect 2 hours after payment"))), React.createElement("div", {
+  }), "Ready to collect 2 hours after payment")), React.createElement(AttachmentNote, null)), React.createElement("div", {
     className: "hero-img"
   }, React.createElement("img", {
     src: "assets/hero-halloween.png",
@@ -220,7 +224,7 @@ function FinalCta({
     size: "lg",
     variant: t.mood === 'bold' ? 'dark' : 'primary',
     onClick: goContact
-  }, "Send us your idea")));
+  }, "Send us your idea"), React.createElement(AttachmentNote, null)));
 }
 function Footer() {
   const h = React.createElement;
