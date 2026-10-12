@@ -1,0 +1,6 @@
+/* Poppins/Inter still have no brand file — nearest Google Fonts substitutes. See readme.md > Visual Foundations > Typography. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Cascadia Code — self-hosted from the user-uploaded font files (variable weight 300-700) */
+@font-face{font-family:'Cascadia Code';src:url('../fonts/CascadiaCode-VariableFont_wght.ttf') format('truetype-variations');font-weight:300 700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Cascadia Code';src:url('../fonts/CascadiaCode-Italic-VariableFont_wght.ttf') format('truetype-variations');font-weight:300 700;font-style:italic;font-display:swap;}
