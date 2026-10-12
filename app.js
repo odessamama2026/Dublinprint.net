@@ -223,94 +223,37 @@ function FinalCta({
   }, "Send us your idea")));
 }
 function Footer() {
-  return React.createElement("footer", {
-    className: "ftr",
-    id: "contact"
-  }, React.createElement("div", {
-    className: "wrap"
-  }, React.createElement("div", {
-    className: "ftr-grid"
-  }, React.createElement("div", null, React.createElement("img", {
-    src: LOGO,
-    alt: "DublinPrint",
-    style: {
-      width: 152,
-      height: 65
-    }
-  })), React.createElement("div", null, React.createElement("h4", null, "Contact"), React.createElement("ul", null, React.createElement("li", null, React.createElement(Icon, {
-    name: "phone",
-    size: 16,
-    tone: "white"
-  }), React.createElement("a", {
-    href: "tel:+35316709872",
-    style: {
-      color: '#fff',
-      fontWeight: 600,
-      textDecoration: 'none'
-    }
-  }, "+353 16709872")), React.createElement("li", null, React.createElement(Icon, {
-    name: "mail",
-    size: 16,
-    tone: "white"
-  }), React.createElement("a", {
-    href: "mailto:27print27@gmail.com",
-    style: {
-      color: '#fff',
-      fontWeight: 600,
-      textDecoration: 'none'
-    }
-  }, "27print27@gmail.com")), React.createElement("li", null, React.createElement(Icon, {
-    name: "globe",
-    size: 16,
-    tone: "white"
-  }), React.createElement("a", {
-    href: "https://Dublinprint.net",
-    style: {
-      color: '#fff',
-      fontWeight: 600,
-      textDecoration: 'none'
-    }
-  }, "https://Dublinprint.net")))), React.createElement("div", null, React.createElement("h4", null, "Pickup"), React.createElement("ul", null, React.createElement("li", {
-    style: {
-      alignItems: 'flex-start',
-      flexWrap: 'nowrap'
-    }
-  }, React.createElement(Icon, {
-    name: "map-pin",
-    size: 16,
-    tone: "white",
-    style: {
-      marginTop: 2,
-      flex: 'none'
-    }
-  }), React.createElement("a", {
-    href: MAPS,
-    target: "_blank",
-    rel: "noopener",
-    style: {
-      color: '#fff',
-      fontWeight: 600,
-      lineHeight: 1.5,
-      textDecoration: 'none'
-    }
-  }, "2C Grangegorman Lower,", React.createElement("br", null), "Smithfield, D07 K46Y")), React.createElement("li", null, React.createElement(Icon, {
-    name: "clock",
-    size: 16,
-    tone: "white"
-  }), React.createElement("span", {
-    style: {
-      color: '#fff',
-      fontWeight: 600
-    }
-  }, "Ready 2 hours after payment"))))), React.createElement("div", {
-    className: "ftr-base"
-  }, "\xA9 DublinPrint \xB7 ", React.createElement("a", {
-    href: "https://Dublinprint.net",
-    style: {
-      color: 'inherit',
-      textDecoration: 'none'
-    }
-  }, "https://Dublinprint.net"))));
+  const h = React.createElement;
+  const linkStyle = { color: '#fff', fontWeight: 600, textDecoration: 'none' };
+  const row = (icon, content) => h('li', null, h(Icon, { name: icon, size: 16, tone: 'white' }), content);
+  return h('footer', { className: 'ftr', id: 'contact' },
+    h('div', { className: 'wrap' },
+      h('div', { className: 'ftr-grid' },
+        h('div', null,
+          h('img', { src: LOGO, alt: 'DublinPrint', style: { width: 152, height: 65 } }),
+          h('a', { href: 'https://Dublinprint.net', style: { ...linkStyle, display: 'inline-block', marginTop: 16 } }, 'https://Dublinprint.net')
+        ),
+        h('div', null, h('h4', null, 'Contact'),
+          h('ul', null,
+            row('phone', h('a', { href: 'tel:+35316709872', style: linkStyle }, '+353 16709872')),
+            row('mail', h('a', { href: 'mailto:27print27@gmail.com', style: linkStyle }, '27print27@gmail.com'))
+          )
+        ),
+        h('div', null, h('h4', null, 'Pickup'),
+          h('ul', null,
+            h('li', { style: { alignItems: 'flex-start', flexWrap: 'nowrap' } },
+              h(Icon, { name: 'map-pin', size: 16, tone: 'white', style: { marginTop: 2, flex: 'none' } }),
+              h('a', { href: MAPS, target: '_blank', rel: 'noopener', style: { ...linkStyle, lineHeight: 1.5 } },
+                '2C Grangegorman Lower,', h('br'), 'Smithfield, D07 K46Y')
+            ),
+            row('clock', h('span', { style: { color: '#fff', fontWeight: 600 } }, 'Ready 2 hours after payment'))
+          )
+        )
+      ),
+      h('div', { className: 'ftr-base' }, '© DublinPrint · ',
+        h('a', { href: 'https://Dublinprint.net', style: { color: 'inherit', textDecoration: 'none' } }, 'https://Dublinprint.net'))
+    )
+  );
 }
 const TWEAK_DEFAULTS = {
   "mood": "playful",
